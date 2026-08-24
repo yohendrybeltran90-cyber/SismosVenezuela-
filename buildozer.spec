@@ -5,7 +5,7 @@ package.domain = org.sismos
 source.dir = .
 source.exts = py,png,jpg,kv,atlas
 version = 1.0
-requirements = python3,kivy,urllib3,certifi
+requirements = python3,kivy,urllib3,certifi,setuptools
 orientation = portrait
 android.permissions = INTERNET
 android.ndk = 25b
@@ -16,3 +16,5 @@ android.accept-sdk-license = True
 [buildozer]
 log_level = 2
 warn_on_root = 1
+# (str) Custom p4a recipe to use
+p4a.branch = master
