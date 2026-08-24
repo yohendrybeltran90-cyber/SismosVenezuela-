@@ -27,12 +27,16 @@ jobs:
         pip install --upgrade pip
         pip install --user --upgrade buildozer cython==0.29.36
 
+    - name: Accept Android SDK Licenses
+      run: |
+        mkdir -p ~/.buildozer/android/platform/android-sdk/licenses
+        echo -e "\n24333f8a43b681623ef0eb379f5d254f48383f38" > ~/.buildozer/android/platform/android-sdk/licenses/android-sdk-license
+        echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" >> ~/.buildozer/android/platform/android-sdk/licenses/android-sdk-license
+        echo -e "\nd56f5187479451eabf01fb78af6dfcb131a648af" >> ~/.buildozer/android/platform/android-sdk/licenses/android-sdk-license
+
     - name: Run Buildozer
-      env:
-        BUILDER_ACCEPT_LICENSE: "1"
       run: |
         export PATH=$PATH:~/.local/bin
-        # Forzar aceptacion de licencias y compilar
         buildozer -v android debug
 
     - name: Upload APK
@@ -40,4 +44,3 @@ jobs:
       with:
         name: package
         path: bin/*.apk
-        
