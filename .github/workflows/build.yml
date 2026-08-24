@@ -20,6 +20,11 @@ jobs:
       with:
         python-version: '3.10'
 
+    - name: Clear Old Buildozer Cache
+      run: |
+        rm -rf ~/.buildozer
+        rm -rf .buildozer
+
     - name: Install Dependencies
       run: |
         sudo apt-get update
@@ -39,4 +44,3 @@ jobs:
       with:
         name: package
         path: bin/*.apk
-        
