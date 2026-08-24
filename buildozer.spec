@@ -16,3 +16,6 @@ android.accept-sdk-license = True
 [buildozer]
 log_level = 2
 warn_on_root = 1
+# Incrementa el nivel de paralelismo para aprovechar los núcleos del servidor de GitHub
+# y terminar más rápido antes de que se agote el tiempo:
+build_mode = debug
