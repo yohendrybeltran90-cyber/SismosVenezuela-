@@ -10,7 +10,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-22.04
-    timeout-minutes: 40
+    timeout-minutes: 30
 
     steps:
     - name: Checkout repository
@@ -39,7 +39,6 @@ jobs:
     - name: Run Buildozer
       env:
         ANDROID_SDK_ACCEPT_LICENSE: "1"
-        BUILDER_DEBUG: "1"
       run: |
         export PATH=$PATH:~/.local/bin
         yes | buildozer -v android debug
@@ -49,3 +48,4 @@ jobs:
       with:
         name: package
         path: bin/*.apk
+        
